@@ -1,8 +1,8 @@
 import { verificarMoedas } from "./popup-e-alerta.js";
 
-const moedasDisplay = document.querySelector('.qtdeMoedas');
+const moedasDisplay = document.querySelector('.qtde-moedas');
 const inventarioDisplay = document.getElementById('qtde-inventario');
-const inventarioItems = document.querySelectorAll('.inventario__item');
+const inventarioItems = document.querySelectorAll('.item');
 
 // quantidade inicial de moedas do usuário
 export let moedasUsuario = 300;
@@ -61,7 +61,7 @@ export function atualizarMoedas() {
 export function atualizarInventario() {
     vetorInventario.forEach((semente) => {
         // seleciona o item baseado no data-id
-        const itemHTML = document.querySelector(`.inventario__item [data-id="${semente.id}"]`);
+        const itemHTML = document.querySelector(`.item [data-id="${semente.id}"]`);
         
         // se o item for encontrado no DOM, atualiza a quantidade
         if (itemHTML) {

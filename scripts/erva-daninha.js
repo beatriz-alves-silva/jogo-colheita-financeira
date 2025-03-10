@@ -2,7 +2,7 @@ import { areaPlantacao } from "./plantio.js";
 import { exibirAlerta } from "./popup-e-alerta.js";
 
 export let herbicidaAtivo = false;
-const herbicida = document.getElementById('botaoHerbicida');
+const herbicida = document.getElementById('botao-herbicida');
 const ervaDaninhaGif = '/assets/images/erva-daninha.gif';
 const tempoMin = 50000; // tempo mínimo para gerar erva daninha
 const tempoMax = 150000;

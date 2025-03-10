@@ -161,7 +161,7 @@ i:not(:hover) {
     justify-content: center;
 }
 
-.main .moedas .qtdeMoedas {
+.main .moedas .qtde-moedas {
     position: relative;
     background-color: #8c5a3c;
     padding: 15px;
@@ -206,13 +206,16 @@ i:not(:hover) {
 
 }
 
-.inventario .linha {
+.inventario .itens-inventario {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
     flex-direction: row;
-    justify-content: space-evenly;
+    align-content: center;
 }
 
-.inventario .linha .inventario__item {
+.inventario .itens-inventario .item {
     display: flex;
     flex-wrap: nowrap;
     align-content: center;
@@ -228,14 +231,14 @@ i:not(:hover) {
     padding: 4px;
 }
 
-.inventario .linha .inventario__item img {
+.inventario .itens-inventario .item img {
     width: 120px;
     height:100px;
     opacity: 0.6;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.inventario .linha .inventario__item img:hover {
+.inventario .itens-inventario .item img:hover {
     opacity: 1;
     transform: scale(1.1); /* Aumenta 10% do tamanho original */
 }
@@ -317,7 +320,7 @@ i:not(:hover) {
         height: 90px; 
     }
 
-    .main .moedas .qtdeMoedas{
+    .main .moedas .qtde-moedas{
         padding: 15px;
         font-size: 45px;
     }
@@ -328,12 +331,12 @@ i:not(:hover) {
         height: 450px;
     }
 
-    .inventario .linha .inventario__item{
+    .inventario .itens-inventario .item{
         width: 130px;
         height: 120px;
     }
 
-    .inventario .linha .inventario__item img{
+    .inventario .itens-inventario .item img{
         width: 100px;
         height:80px;
     }
@@ -361,7 +364,7 @@ i:not(:hover) {
         height: 75px; 
     }
 
-    .main .moedas .qtdeMoedas{
+    .main .moedas .qtde-moedas{
         padding: 10px;
         font-size: 40px;
     }
@@ -372,12 +375,12 @@ i:not(:hover) {
         height: 350px;
     }
 
-    .inventario .linha .inventario__item{
+    .inventario .itens-inventario .item{
         width: 100px;
         height: 90px;
     }
 
-    .inventario .linha .inventario__item img{
+    .inventario .itens-inventario .item img{
         width: 80px;
         height:60px;
     }

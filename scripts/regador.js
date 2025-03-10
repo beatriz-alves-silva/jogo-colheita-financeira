@@ -1,6 +1,6 @@
 import { areaPlantacao } from "./plantio.js";
 
-const regador = document.getElementById('botaoRegador');
+const regador = document.getElementById('botao-regador');
 export let regadorAtivo = false; // controla se o regador está ativo 
 
 // função que ativa/desativa o regador ao clicar no botão

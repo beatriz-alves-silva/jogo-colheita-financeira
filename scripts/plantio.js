@@ -8,7 +8,7 @@ let CursorSelecionado = null; // icone do cursor
 let plantaSelecionada = null; // tipo de planta selecionada
 let cursorAtivo = false;
 const body = document.body;
-const planta = document.querySelectorAll('.inventario__item img'); // icones do inventário
+const planta = document.querySelectorAll('.item img'); // icones do inventário
 
 function desativarCursor() {
     cursorAtivo = false;
@@ -108,7 +108,7 @@ function crescimentoPlanta(area) {
                 //console.log(`Planta na área ${area.dataset.id} está completamente crescida!`);
                 //console.log(`Area pronta para colheita? ${area.dataset.readyToHarvest}`);
             }
-        }, 5000); // tempo entre os estágios
+        }, 10000); // tempo entre os estágios
 }
   // função para usar (plantar) um item
 function usarItem(id) {
@@ -263,7 +263,7 @@ areaPlantacao.forEach((area) => {
             setTimeout(() => {
                 area.style.backgroundColor = ""; // Volta ao normal
                 area.dataset.plantaRegada = 'false';
-                }, 20000); // mudar esse tempo para o tempo que a planta vai demorar para crescer em media
+                }, 40000); // mudar esse tempo para o tempo que a planta vai demorar para crescer em media
         }
         else if(regadorAtivo){
             //console.log(`Regando a area ${area.dataset.id} sem planta`);

@@ -1,14 +1,14 @@
 const inventario = document.querySelector('.inventario');
-const botaoInventario = document.getElementById('botaoInventario');
+const botaoInventario = document.getElementById('botao-inventario');
 
 const telaLoja = document.querySelector('.tela-loja');
-const botaoLoja = document.getElementById('botaoLoja');
+const botaoLoja = document.getElementById('botao-loja');
 const botaoVoltarMain = document.querySelector('.botao-voltar-main');
 
 const telaPause = document.querySelector('.telaPause');
-const botaoPause = document.getElementById('botaoPause');
+const botaoPause = document.getElementById('botao-pause');
 const overlay = document.querySelector('.overlay');
-const botaoVoltarJogo = document.getElementById('voltarJogo');
+const botaoVoltarJogo = document.getElementById('voltar-jogo');
 
 botaoInventario.addEventListener('click', () => {
     const isVisible = inventario.style.display === 'block';

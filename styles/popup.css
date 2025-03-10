@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box; /* adiciona box-sizing globalmente */
+}
+
+@font-face {
+    font-family: 'pixelart'; /* nome usado no css */
+    src: url('assets/fonts/arcadeclassic/ARCADECLASSIC.TTF') format('ttf'), 
+         url('assets/fonts/arcadeclassic/ARCADECLASSIC.TTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vcr'; /* nome usado no css */
+    src: url('/assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('ttf'),
+         url('/assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.popup{
+    display: none;
+    z-index: 2;
+}
+
+.popup .popup__conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* maior que o z-index da overlay */
+    background-color: #ffba81;
+    border: 4px solid #b86f50;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 650px;
+    height: 400px;
+    gap: 15px;
+    padding: 5px;
+}
+
+.popup .popup__conteudo button{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffba81;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'pixelart', sans-serif;
+    color: #b86c4b;
+    text-align: center;
+    border: 2px solid #b86f50; 
+}
+
+.popup .popup__conteudo button:hover{
+    background-color: #b86c4b;
+    color: #ffba81 ;
+    box-shadow: 2px 2px 0 #ffba81; 
+}
+
+.popup .popup__conteudo .mensagem{
+    text-align: center; 
+    flex-direction: column;
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-family: 'vcr', sans-serif;
+    text-shadow: 1px 1px 0 #3e8948; 
+    color: #b86c4b;
+    font-size: 35px;
+}

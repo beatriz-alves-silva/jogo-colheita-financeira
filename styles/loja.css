@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box; /* adiciona box-sizing globalmente */
+}
+
+@font-face {
+    font-family: 'pixelart'; /* nome usado no css */
+    src: url('/assets/fonts/arcadeclassic/ARCADECLASSIC.TTF') format('ttf'), 
+         url('/assets/fonts/arcadeclassic/ARCADECLASSIC.TTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vcr'; /* nome usado no css */
+    src: url('/assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('ttf'),
+         url('/assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.tela-loja{
+    display: none;
+    z-index: 2;
+}
+
+.tela-loja .pagina-loja{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: #ffba81 ;
+    border: 4px solid #b86f50;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 750px;
+    height: 550px;
+}
+
+.tela-loja .pagina-loja .texto-loja{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    color: #8f5840;
+    font-family: 'vcr', sans-serif;
+    text-shadow: 2px 2px 0 #b86c4b;
+    padding: 8px;
+}
+
+.tela-loja .pagina-loja .inferior{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+}
+.tela-loja .pagina-loja .inferior .linha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap:8px; 
+}
+
+.tela-loja .pagina-loja .inferior .linha .loja__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 180px;  
+    height: 180px; 
+    border: none;
+    border-radius: 16px;
+    font-size: 30px; 
+    cursor: pointer;
+    background-image: url(/assets/images/moldura.png);
+    background-size: cover;  
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.tela-loja .pagina-loja .loja__item img{
+    width: 90px;
+    height:90px;
+    opacity: 0.6;
+}
+
+.tela-loja .pagina-loja .loja__item img:hover{
+    opacity: 1;
+    transform: scale(1.1); /* Aumenta 10% do tamanho original */
+}
+
+.tela-loja .pagina-loja .superior{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    width: 100%;
+    height: 15%;
+}
+
+.tela-loja .pagina-loja button.confirmar{
+    display: flex;
+    background-color: #ffba81;
+    background-image: url(/assets/images/confirmar.png);
+    background-size: cover;  
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.tela-loja .pagina-loja button.confirmar:hover{
+    opacity: 1;
+}
+  
+.tela-loja .pagina-loja button.negar{
+    background-color: #ffba81;
+    background-image: url(/assets/images/negar.png);
+    background-size: cover;  
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 50px;
+    height: 50px;
+    border: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.tela-loja .pagina-loja button.negar:hover{
+    opacity: 1;
+}
+
+.tela-loja .pagina-loja .confirmar-compra{
+    gap:10px;
+}
+
+.tela-loja .pagina-loja .inferior .linha .loja__item .valor{
+    font-size: 40px;
+    color: #8f5840;
+    font-family: 'vcr', sans-serif;
+}
+
+
+.tela-loja .pagina-loja .superior button{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    position: absolute;
+    top: 20px;
+    right: 20px; 
+    background-color: #ffba81;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'pixelart', sans-serif;
+    color: #b86c4b;
+    text-align: center;
+    border: 2px solid #b86f50; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.tela-loja .pagina-loja .superior button:hover{
+    background-color: #b86c4b;
+    color: #ffba81 ;
+    border: 2px solid #ffba81; 
+    transform: scale(1.1); /* Aumenta 10% do tamanho original */
+
+}
+
+@media (max-width: 1720px) {
+    .tela-loja .pagina-loja{
+        width: 650px;
+        height: 460px;
+    }
+
+    .tela-loja .pagina-loja .inferior .linha .loja__item{
+        width: 140px;  
+        height: 140px; 
+        font-size: 20px; 
+    }
+
+    .tela-loja .pagina-loja .loja__item img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .tela-loja .pagina-loja .inferior .linha .loja__item .valor{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1370px) {
+    .tela-loja .pagina-loja{
+        width: 530px;
+        height: 400px;
+    }
+
+    .tela-loja .pagina-loja .texto-loja{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 25px;
+        color: #8f5840;
+        font-family: 'vcr', sans-serif;
+        text-shadow: 2px 2px 0 #b86c4b;
+        padding: 8px;
+    }
+
+    .tela-loja .pagina-loja .inferior .linha .loja__item{
+        width: 120px;  
+        height: 120px; 
+        font-size: 20px; 
+    }
+
+    .tela-loja .pagina-loja .loja__item img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .tela-loja .pagina-loja .inferior .linha .loja__item .valor{
+        font-size: 25px;
+    }
+}

@@ -10,6 +10,8 @@ Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA 
   <em>Figura 1: Tela principal do jogo</em>
 </p>
 
+---
+
 ## Artigos Científicos
 
 Este projeto já resultou na publicação de um artigo científico e outros dois estão em desenvolvimento.
@@ -24,6 +26,8 @@ Este projeto já resultou na publicação de um artigo científico e outros dois
 
   **2.** *Jogos educacionais para pessoas com deficiência intelectual: estudos de caso, aplicação e resultados*  
   Este artigo trará uma análise dos testes realizados na instituição parceira ASSARTE, com foco na experiência dos alunos, na usabilidade, e nos resultados obtidos com a utilização do jogo como ferramenta de apoio educacional.
+
+---
 
 ## Descrição do Jogo
 
@@ -66,11 +70,62 @@ O jogo foi desenvolvido para ambientes web utilizando as seguintes tecnologias:
 
 A arte do jogo foi criada utilizando ferramentas de pixel art como **TILED** e **PISKEL**, que permitiram o desenvolvimento do cenário, botões, animações e ícones.
 
-### Inteligência Artificial
+---
 
-A função de cálculo da recompensa do jogador foi implementada utilizando a técnica de **aprendizagem por reforço**, com o algoritmo **Q-learning**. Cada área de plantio opera de forma independente para determinar a recompensa correspondente, levando em consideração o tempo sem regar e a presença de ervas daninhas.
+## Inteligência Artificial e Sistema de Recompensas
 
-## Melhorias Futuras
+O jogo utiliza uma técnica de **Aprendizagem por Reforço**, implementada com o algoritmo **Q-Learning**, para calcular a recompensa que o jogador recebe ao colher cada planta.
+
+### Como funciona o Q-Learning no jogo?
+
+- **Cada área de plantio é tratada como um agente independente**.  
+  Isso significa que a **tabela Q** (Q-Table) de uma área não interfere nos resultados das demais. Cada área aprende e calcula sua própria recompensa com base no seu estado individual.
+
+- **Definição do estado de cada área de plantio**:  
+  O estado de uma área é determinado por:
+  - O **tempo sem regar** (a partir do momento em que a semente foi plantada).
+  - O **tempo que uma erva daninha permaneceu** naquela área.
+
+### Fórmula de atualização do Q-Learning
+
+A recompensa recebida na colheita é definida com base no valor atualizado na Q-Table do agente. O algoritmo segue a fórmula padrão de Q-Learning:
+
+*Q(s, a) = Q(s, a) + α [R + γ * maxQ(s', a') - Q(s, a)]*
+
+- `s`: estado atual.  
+- `a`: ação realizada (colher a planta).  
+- `α`: taxa de aprendizado (learning rate).  
+- `γ`: fator de desconto (discount factor).  
+- `R`: recompensa imediata recebida pela ação.  
+- `maxQ(s', a')`: valor máximo de Q no próximo estado.
+
+> A **recompensa (R)** é calculada considerando o estado da planta no momento da colheita. Quanto melhor o cuidado (regas frequentes e remoção rápida de ervas daninhas), maior a recompensa.
+
+---
+
+### Influência dos Estados no Crescimento de Ervas Daninhas
+
+Além de impactar a recompensa na colheita, o **estado de cada área de plantio** influencia diretamente o surgimento de **ervas daninhas**:
+
+1. Ao ser necessário decidir **onde** uma erva daninha irá crescer:
+   - O algoritmo analisa o estado atual de **todas as áreas de plantio**.
+   - A **área disponível** (ou seja, sem semente plantada) com o **maior estado** (indicando que é a menos cuidada) será a escolhida para o crescimento da próxima erva daninha.
+
+2. Quando uma área é afetada por uma erva daninha:
+   - A **área adjacente** (ao lado) recebe um aumento de **+4** no seu estado.
+   - Isso aumenta as chances dessa nova área ser a próxima a ser invadida pela erva daninha, caso o jogador não tome providências.
+
+---
+
+### Objetivo da IA no Ensino de Educação Financeira
+
+A IA com Q-Learning foi implementada com o propósito de tornar o **valor das recompensas dinâmico**, reforçando o aprendizado de conceitos como:
+
+- **Esforço e retorno proporcional**: quanto mais atenção e cuidado o jogador tiver com sua plantação, maior será o retorno financeiro (recompensa).
+- **Gestão de recursos e planejamento**: o jogador precisa planejar quando e onde investir seu tempo e dinheiro para maximizar suas colheitas.
+- **Impacto de escolhas e ações a longo prazo**: decisões negligentes impactam não apenas a recompensa imediata, mas também as condições futuras da plantação.
+
+---
 
 Embora o jogo já esteja em uma versão funcional, ainda há diversas melhorias e ajustes planejados para as próximas versões. Algumas delas incluem:
 

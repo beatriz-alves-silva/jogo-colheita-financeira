@@ -1,4 +1,7 @@
 # Jogo Educacional de Educação Financeira - **Colheita Financeira**
+
+Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA INTELIGÊNCIA ARTIFICIAL EM APLICAÇÕES COMPUTACIONAIS**. O objetivo do projeto é aplicar técnicas de inteligência artificial em aplicações computacionais para auxiliar estudantes com deficiência intelectual (DI). As aplicações desenvolvidas são testadas e disponibilizadas para uma instituição parceira chamada **ASSARTE**.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/aff55b8b-f9de-445f-977b-db64700a621f" alt="Tela Principal do Jogo" width="600"/>
 </p>
@@ -6,8 +9,6 @@
 <p align="center">
   <em>Figura 1: Tela principal do jogo</em>
 </p>
-
-Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA INTELIGÊNCIA ARTIFICIAL EM APLICAÇÕES COMPUTACIONAIS**. O objetivo do projeto é aplicar técnicas de inteligência artificial em aplicações computacionais para auxiliar estudantes com deficiência intelectual (DI). As aplicações desenvolvidas são testadas e disponibilizadas para uma instituição parceira chamada **ASSARTE**.
 
 ## Artigo Científico
 

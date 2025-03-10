@@ -1,4 +1,4 @@
-# Jogo Educacional de Educação Financeira - **Colheita Financeira**
+![image](https://github.com/user-attachments/assets/0817ad1b-8292-4fc0-94cd-594245cfdd99)# Jogo Educacional de Educação Financeira - **Colheita Financeira**
 
 Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA INTELIGÊNCIA ARTIFICIAL EM APLICAÇÕES COMPUTACIONAIS**. O objetivo do projeto é aplicar técnicas de inteligência artificial em aplicações computacionais para auxiliar estudantes com deficiência intelectual (DI). As aplicações desenvolvidas são testadas e disponibilizadas para uma instituição parceira chamada **ASSARTE**.
 
@@ -51,3 +51,30 @@ A arte do jogo foi criada utilizando ferramentas de pixel art como **TILED** e *
 
 A função de cálculo da recompensa do jogador foi implementada utilizando a técnica de **aprendizagem por reforço**, com o algoritmo **Q-learning**. Cada área de plantio opera de forma independente para determinar a recompensa correspondente, levando em consideração o tempo sem regar e a presença de ervas daninhas.
 
+## Melhorias Futuras
+
+Embora o jogo já esteja em uma versão funcional, ainda há diversas melhorias e ajustes planejados para as próximas versões. Algumas delas incluem:
+
+- **Configurações de Áudio**  
+  Adicionar sons e trilhas sonoras para enriquecer a experiência do usuário, incluindo efeitos sonoros para ações como plantar, regar, colher e remover ervas daninhas.
+
+- **Adição de Textos e Feedbacks Visuais**  
+  Complementar os textos de instruções e informações no jogo, garantindo clareza nas ações. Também estão previstas notificações para lembrar o usuário de regar as plantas e retirar as ervas daninhas das áreas de plantio.
+
+- **Sistema de Fim de Jogo e Reinício**  
+  Implementar uma mensagem de aviso quando o usuário ficar sem dinheiro e sem sementes para plantar, indicando o "fim de jogo". O jogador poderá recomeçar quantas vezes desejar, garantindo a continuidade da experiência de aprendizado.
+
+- **Melhorias Visuais**  
+  Apesar do visual atual estar satisfatório, há planos de aprimorar ainda mais a estética do jogo, tornando-o mais atrativo e imersivo para os usuários.
+
+- **Aprimoramento da Interação com Itens**  
+  Refinar a interação com os itens como o regador e o herbicida, garantindo que a troca de ícones do cursor seja mais intuitiva e evitando possíveis colisões ou falhas durante a utilização das ferramentas.
+
+- **Testes com Usuários na Instituição Parceira (ASSARTE)**  
+  Serão realizados testes práticos com os alunos da instituição para avaliar a funcionalidade do jogo. Esses testes vão ajudar a identificar ajustes necessários, como o tempo de crescimento das sementes, o valor inicial em dinheiro, e outros aspectos da mecânica que possam melhorar a experiência de jogo.
+
+- **Exploração de Novas Tecnologias**  
+  No futuro, pretende-se utilizar outras linguagens de programação e ferramentas para aprimorar ainda mais o jogo, tornando-o mais robusto e profissional. Este é um projeto que se pretende levar adiante, sempre buscando melhorias.
+
+- **Aprimoramento da Inteligência Artificial**  
+  também está previsto um refinamento na IA de cálculo de recompensas, para que ela considere o tipo específico de semente. Dessa forma, o valor de compra e a recompensa de cada semente poderão ser diferentes, proporcionando uma dinâmica de jogo mais realista e desafiadora. Atualmente, todas as sementes possuem o mesmo valor de compra e base de recompensa.

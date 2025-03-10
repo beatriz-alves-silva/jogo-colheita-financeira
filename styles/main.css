@@ -305,7 +305,7 @@ i:not(:hover) {
         height: 450px;
     }
 
-    .main .plantacao .linha .area-plantio {
+    .main .plantacao .areas-plantacao .area-plantio {
         width: 125px;
         height: 100px; 
     }
@@ -332,8 +332,8 @@ i:not(:hover) {
     }
 
     .inventario .itens-inventario .item{
-        width: 130px;
-        height: 120px;
+        width: 120px;
+        height: 110px;
     }
 
     .inventario .itens-inventario .item img{

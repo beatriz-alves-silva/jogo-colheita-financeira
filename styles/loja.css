@@ -40,34 +40,33 @@
     cursor: pointer;
     width: 750px;
     height: 550px;
+    gap: 50px;
 }
 
-.tela-loja .pagina-loja .texto-loja{
+.tela-loja .pagina-loja .texto-botao{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     font-size: 40px;
     color: #8f5840;
     font-family: 'vcr', sans-serif;
     text-shadow: 2px 2px 0 #b86c4b;
     padding: 8px;
+    width: 100%;
 }
 
-.tela-loja .pagina-loja .inferior{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-}
-.tela-loja .pagina-loja .inferior .linha{
+.tela-loja .pagina-loja .itens-loja {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px;
-    gap:8px; 
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-.tela-loja .pagina-loja .inferior .linha .loja__item{
+.tela-loja .pagina-loja .itens-loja .item-loja{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,28 +85,18 @@
 
 }
 
-.tela-loja .pagina-loja .loja__item img{
+.tela-loja .pagina-loja .itens-loja .item-loja img{
     width: 90px;
     height:90px;
     opacity: 0.6;
 }
 
-.tela-loja .pagina-loja .loja__item img:hover{
+.tela-loja .pagina-loja .itens-loja .item-loja img:hover{
     opacity: 1;
     transform: scale(1.1); /* Aumenta 10% do tamanho original */
 }
 
-.tela-loja .pagina-loja .superior{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    width: 100%;
-    height: 15%;
-}
-
-.tela-loja .pagina-loja button.confirmar{
+.tela-loja .pagina-loja .itens-loja .item-loja button.confirmar{
     display: flex;
     background-color: #ffba81;
     background-image: url(/assets/images/confirmar.png);
@@ -121,11 +110,11 @@
     opacity: 0.5;
 }
 
-.tela-loja .pagina-loja button.confirmar:hover{
+.tela-loja .pagina-loja .itens-loja .item-loja button.confirmar:hover{
     opacity: 1;
 }
-  
-.tela-loja .pagina-loja button.negar{
+
+.tela-loja .pagina-loja .itens-loja .item-loja button.negar{
     background-color: #ffba81;
     background-image: url(/assets/images/negar.png);
     background-size: cover;  
@@ -138,28 +127,26 @@
     transition: opacity 0.3s ease;
 }
 
-.tela-loja .pagina-loja button.negar:hover{
+.tela-loja .pagina-loja .itens-loja .item-loja button.negar:hover{
     opacity: 1;
 }
 
-.tela-loja .pagina-loja .confirmar-compra{
+.tela-loja .pagina-loja .itens-loja .item-loja .confirmar-compra{
     gap:10px;
 }
 
-.tela-loja .pagina-loja .inferior .linha .loja__item .valor{
+.tela-loja .pagina-loja .itens-loja .item-loja .valor{
     font-size: 40px;
     color: #8f5840;
     font-family: 'vcr', sans-serif;
 }
 
-
-.tela-loja .pagina-loja .superior button{
+.tela-loja .pagina-loja .texto-botao button{
     display: flex;
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
     position: absolute;
-    top: 20px;
     right: 20px; 
     background-color: #ffba81;
     border: none;
@@ -174,10 +161,9 @@
     text-align: center;
     border: 2px solid #b86f50; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
 
-.tela-loja .pagina-loja .superior button:hover{
+.tela-loja .pagina-loja .texto-botao  button:hover{
     background-color: #b86c4b;
     color: #ffba81 ;
     border: 2px solid #ffba81; 
@@ -191,18 +177,18 @@
         height: 460px;
     }
 
-    .tela-loja .pagina-loja .inferior .linha .loja__item{
-        width: 140px;  
-        height: 140px; 
+    .tela-loja .pagina-loja .itens-loja .item-loja{
+        width: 160px;  
+        height: 160px; 
         font-size: 20px; 
     }
 
-    .tela-loja .pagina-loja .loja__item img{
+    .tela-loja .pagina-loja .itens-loja .item-loja img{
         width: 70px;
         height: 70px;
     }
 
-    .tela-loja .pagina-loja .inferior .linha .loja__item .valor{
+    .tela-loja .pagina-loja .itens-loja .item-loja .valor{
         font-size: 30px;
     }
 }
@@ -224,18 +210,18 @@
         padding: 8px;
     }
 
-    .tela-loja .pagina-loja .inferior .linha .loja__item{
-        width: 120px;  
-        height: 120px; 
+    .tela-loja .pagina-loja .itens-loja .item-loja{
+        width: 130px;  
+        height: 130px; 
         font-size: 20px; 
     }
 
-    .tela-loja .pagina-loja .loja__item img{
+    .tela-loja .pagina-loja .itens-loja .item-loja img{
         width: 60px;
         height: 60px;
     }
 
-    .tela-loja .pagina-loja .inferior .linha .loja__item .valor{
+    .tela-loja .pagina-loja .itens-loja .item-loja .valor{
         font-size: 25px;
     }
 }

@@ -2,7 +2,7 @@ import { atualizarMoedas, atualizarInventario, salvarNoLocalStorage, vetorInvent
 import { exibirAlerta } from "./popup-e-alerta.js";
 
 // adiciona evento de clique em cada item da loja
-document.querySelectorAll('.loja__item img').forEach(item => {
+document.querySelectorAll('.item-loja img').forEach(item => {
     item.addEventListener('click', () => {
     const id = item.getAttribute('data-planta');
 
@@ -29,7 +29,7 @@ document.querySelectorAll('.confirmar-compra').forEach(container => {
     container.style.display = 'none';
 
     // reativa a imagem correspondente (ícone da planta)
-    const imagem = document.querySelector(`.loja__item img[data-planta="${id}"]`);
+    const imagem = document.querySelector(`.item-loja img[data-planta="${id}"]`);
     if (imagem) {
         imagem.style.display = 'block';
     }
@@ -42,7 +42,7 @@ document.querySelectorAll('.confirmar-compra').forEach(container => {
     container.style.display = 'none';
 
       // reativa a imagem correspondente
-    const imagem = document.querySelector(`.loja__item img[data-planta="${id}"]`);
+    const imagem = document.querySelector(`.item-loja img[data-planta="${id}"]`);
     if (imagem) {
         imagem.style.display = 'block';
     }

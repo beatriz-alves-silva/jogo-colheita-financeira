@@ -10,9 +10,20 @@ Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA 
   <em>Figura 1: Tela principal do jogo</em>
 </p>
 
-## Artigo Científico
+## Artigos Científicos
 
-Um artigo científico sobre o desenvolvimento do jogo foi publicado, e pode ser acessado [aqui](https://www.even3.com.br/anais/seisicite2024/959937-jogos-educacionais-relacionados-a-educacao-financeira-que-utilizam-tecnicas-de-inteligencia-artificial-para-pesso/).
+Este projeto já resultou na publicação de um artigo científico e outros dois estão em desenvolvimento.
+
+- **Publicado**  
+  [Jogos Educacionais Relacionados à Educação Financeira que Utilizam Técnicas de Inteligência Artificial Para Pessoas com Deficiência Intelectual: Uma Pesquisa na Literatura](https://www.even3.com.br/anais/seisicite2024/959937-jogos-educacionais-relacionados-a-educacao-financeira-que-utilizam-tecnicas-de-inteligencia-artificial-para-pesso/)  
+  Este artigo foi produzido na etapa inicial do projeto, durante o processo de pesquisa e planejamento do jogo. Ele apresenta uma revisão de literatura sobre jogos educacionais voltados para a educação financeira, com o objetivo de identificar se tais jogos fazem uso de técnicas de inteligência artificial. O estudo ajudou a embasar o desenvolvimento da proposta atual do jogo.
+
+- **Em Desenvolvimento**  
+  **1.** *Desenvolvimento de um jogo educacional de educação financeira com aplicação de Inteligência Artificial*  
+  Este artigo aprofundará as etapas de desenvolvimento do jogo, com foco na integração da aprendizagem por reforço (Q-learning), bem como nas decisões relacionadas ao design acessível para pessoas com deficiência intelectual.
+
+  **2.** *Jogos educacionais para pessoas com deficiência intelectual: estudos de caso, aplicação e resultados*  
+  Este artigo trará uma análise dos testes realizados na instituição parceira ASSARTE, com foco na experiência dos alunos, na usabilidade, e nos resultados obtidos com a utilização do jogo como ferramenta de apoio educacional.
 
 ## Descrição do Jogo
 

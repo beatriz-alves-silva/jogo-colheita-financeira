@@ -60,8 +60,8 @@ O jogador começa com R$300 e deve usar esse valor para adquirir as sementes. S�
 
 O jogo foi desenvolvido para ambientes web utilizando as seguintes tecnologias:
 
-- **HTML** (HyperText Markup Language)
-- **CSS** (Cascading Style Sheets)
+- **HTML**
+- **CSS** 
 - **JavaScript**
 
 A arte do jogo foi criada utilizando ferramentas de pixel art como **TILED** e **PISKEL**, que permitiram o desenvolvimento do cenário, botões, animações e ícones.

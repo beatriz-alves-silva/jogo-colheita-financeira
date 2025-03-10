@@ -127,6 +127,8 @@ A IA com Q-Learning foi implementada com o propósito de tornar o **valor das re
 
 ---
 
+### Melhorias Futuras
+
 Embora o jogo já esteja em uma versão funcional, ainda há diversas melhorias e ajustes planejados para as próximas versões. Algumas delas incluem:
 
 - **Configurações de Áudio**  

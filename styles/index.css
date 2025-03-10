@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'pixelart'; /* nome usado no css */
+    src: url('/assets/fonts/arcadeclassic/ARCADECLASSIC.TTF') format('ttf'),
+            url('/assets/fonts/arcadeclassic/ARCADECLASSIC.TTF') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vcr'; /* nome usado no css */
+    src: url('/assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('ttf'),
+            url('/assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url('/assets/images/capa.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: opacity 1s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.botoes-menu-inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+h1 {
+    font-family: 'vcr', sans-serif;
+    font-size: 55px;
+    color: #ffba81;
+    text-shadow: 2px 2px 0 #b86c4b;
+    text-align: center;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'vcr', sans-serif;
+    font-size: 45px;
+    color: #ffba81;
+    text-shadow: 2px 2px 0 #b86c4b;
+    text-align: center;
+    margin: 0;
+}
+
+.botao-iniciar,
+.botao-creditos,
+.botao-volumes {
+    background-color: #3e8948;
+    border: 2px solid #b86f50;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-iniciar:hover,
+.botao-creditos:hover,
+.botao-volumes:hover {
+    background-color: #b86f50;
+    color: #ffba81;
+    border-radius: 8px;
+    border: 2px solid #3e8948;
+    text-shadow: 2px 2px 0 #3e8948;
+    transform: scale(1.1);
+}
+
+.botao :active {
+    box-shadow: 0 0 0 #3e8948;
+    background-color: #ffba81;
+    color: #b86f50;
+}
+
+.tela-volume {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    top: 10%;
+    position: relative;
+    background-color: #3e8948;
+    border-radius: 20px;
+    gap: 60px;
+    font-size: 40px;
+    color: #ffba81;
+    padding: 8px;
+    width: 600px;
+    height: 350px;
+    border: 4px solid #b86f50;
+    font-family: 'vcr', sans-serif;
+    text-shadow: 2px 2px 0 #b86c4b;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.volume-control .direita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.volume-config {
+    -webkit-appearance: none; /* remove o estilo padrão no Chrome/Safari */
+    appearance: none;
+    width: 150px; 
+    background: #ffba81; 
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 #b86c4b;
+}
+
+/* estilo para o "polegar" (o botão que o usuário arrasta) */
+.volume-config::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 1px;
+height: 15px; 
+background: #b86c4b;
+cursor: pointer; 
+}
+
+/* estilo do "polegar" em Firefox */
+.volume-config::-moz-range-thumb {
+width: 20px;
+height: 20px;
+background: #b86c4b;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.volume-config::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: #ffba81;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 #b86c4b;
+}
+
+/* estilo da barra quando o controle é movido */
+.volume-config:focus {
+background: #b86c4b;
+}
+
+.titulo-botao {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.btn-x {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 15px;
+    background-color: #ffba81;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'pixelart', sans-serif;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #b86c4b;
+    text-align: center;
+    border: 2px solid #b86f50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-x:hover {
+    background-color: #b86c4b;
+    color: #ffba81;
+    border: 2px solid #ffba81;
+    transform: scale(1.1);
+}
+
+.tela-volume .volumes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tela-creditos {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    top: 10%;
+    position: relative;
+    background-color: #3e8948;
+    border-radius: 20px;
+    gap: 60px;
+    padding: 8px;
+    width: 800px;
+    height: 400px;
+    border: 4px solid #b86f50;
+    font-family: 'vcr', sans-serif;
+    text-shadow: 2px 2px 0 #b86c4b;
+}
+
+.tela-creditos .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'vcr', sans-serif;
+    text-shadow: 2px 2px 0 #b86c4b;
+    gap: 20px;
+    color: #ffba81;
+    letter-spacing: 2px;
+    font-size: 45px;
+}
+
+@media (max-width: 1720px) {
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    .tela-volume {
+        width: 500px;
+        height: 300px;
+    }
+
+    .tela-creditos {
+        width: 650px;
+        height: 350px;
+    }
+
+    .tela-creditos .texto {
+        font-size: 35px;
+    }
+}

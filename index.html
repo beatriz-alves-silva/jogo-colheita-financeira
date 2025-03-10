@@ -3,9 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colheita Financeira</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/icon-page.ico">
+
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    
+    <title>Menu Inicial | Colheita Financeira</title>
 </head>
 <body>
+    <audio id="musica-fundo" src="/assets/audio/background-sound.mp3" loop autoplay></audio>
+    <audio id="click-som" src="/assets/audio/click3.mp3"></audio>
+
+    <section class="botoes-menu-inicial" id="tela-principal">
+        <div class="botao" >
+            <button onclick="navigateTo('/pages/tutorial.html')" class="botao-iniciar" id="botao-iniciar">
+                <audio class="narracao" id="comecar-jogo" src="/assets/audio/comecar-jogo.mp3"></audio>
+                <h1>COMEÇAR JOGO</h1>
+            </button>
+        </div>
+        
+        <div class="botao">
+            <button class="botao-volumes" id="botao-volumes">
+                <audio class="narracao" id="volume" src="/assets/audio/volume.mp3"></audio>
+                <h1>VOLUME</h1>
+            </button>
+        </div>
+
+        <div class="botao">
+            <button class="botao-creditos" id="botao-creditos">
+                <audio class="narracao" id="creditos" src="/assets/audio/creditos.mp3"></audio>
+                <h1>CRÉDITOS</h1>
+            </button>
+        </div>
+    </section>
+
+    <section class="tela-volume" id="tela-volume">
+        <div class="titulo-botao">
+            <h1>VOLUME</h1>
+            <button class="btn-x" id="botao-voltar-volume">X</button>
+        </div>
+
+        <div class="volumes">
+            <div class="volume-control">
+                <div class="esquerda">
+                    <h2 for="volume">MÚSICA</h2>
+                </div>
+                <div class="direita">
+                    <input class="volume-config" type="range" id="volume-musica" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
     
+            <div class="volume-control">
+                <div class="esquerda">
+                    <h2 for="volume">JOGO</h2>
+                </div>
+                <div class="direita">
+                    <input class="volume-config" type="range" id="volume-jogo" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+    
+            <div class="volume-control">
+                <div class="esquerda">
+                    <h2 for="volume">NARRAÇÃO</h2>
+                </div>
+                <div class="direita">
+                    <input class="volume-config" type="range" id="volume-narracao" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tela-creditos" id="tela-creditos">
+        <div class="titulo-botao">
+            <h1>CRÉDITOS</h1>
+            <button class="btn-x" id="botao-voltar-creditos">X</button>
+        </div>
+        
+        <div class="texto">
+            <span>DESENVOLVIDO POR: <br> <b>BEATRIZ ALVES DA SILVA</b></span>
+            <span>PROFESSORA ORIENTADORA: <br> <b>HELYANE BRONOSKI BORGES</b></span>
+            <span><b>UTFPR-PG</b></span>
+        </div>
+    </div>
+
+    <!---->
+    <script src="/scripts/index.js"></script>
+    <script>
+        // reseta o saldo e o inventário ao carregar a página
+        window.addEventListener('DOMContentLoaded', () => {
+            localStorage.removeItem('saldo');
+            localStorage.removeItem('inventario');
+        });
+    
+        function navigateTo(url) {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000);
+        }
+    </script>
 </body>
 </html>

@@ -12,7 +12,7 @@ Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA 
 
 ## Artigo Científico
 
-Um artigo científico sobre o desenvolvimento do jogo foi publicado, e pode ser acessado [aqui]([link_do_artigo](https://www.even3.com.br/anais/seisicite2024/959937-jogos-educacionais-relacionados-a-educacao-financeira-que-utilizam-tecnicas-de-inteligencia-artificial-para-pesso)).
+Um artigo científico sobre o desenvolvimento do jogo foi publicado, e pode ser acessado [aqui](https://www.even3.com.br/anais/seisicite2024/959937-jogos-educacionais-relacionados-a-educacao-financeira-que-utilizam-tecnicas-de-inteligencia-artificial-para-pesso/).
 
 ## Descrição do Jogo
 

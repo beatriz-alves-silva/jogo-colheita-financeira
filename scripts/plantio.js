@@ -42,7 +42,7 @@ planta.forEach((item) => {
 
             CursorSelecionado = cursor;
         } else {
-            //exibirAlerta('SEMENTE INSUFICIENTE NO INVENTÁRIO!');
+            exibirAlerta('NÃO HÁ SEMENTE PARA PLANTAR');
             //console.log(`Não há sementes de ${plantaId} no inventário para selecionar.`);
         }
     });
@@ -82,7 +82,7 @@ function plantarItem(area) {
 
         crescimentoPlanta(area);
     } else {
-        exibirAlerta('SELECIONE UMA SEMENTE PARA PLANTAR!');
+        exibirAlerta('SELECIONE UMA SEMENTE PARA PLANTAR');
         // console.log("Sem semente selecionada para plantar!");
     }
 }
@@ -117,14 +117,11 @@ function usarItem(id) {
 
     if (semente) {
         if (semente.qtdeInventario > 0) {
-            semente.qtdeInventario--; // dcrementa a quantidade no inventário
+            semente.qtdeInventario--; // decrementa a quantidade no inventário
             atualizarInventario();
             salvarNoLocalStorage();
             //console.log(`Plantando ${id}`);
-        } else if(semente.qtdeInventario === 0) {
-            exibirAlerta('Item insuficiente no inventário para plantar.');
-            //console.log("Item insuficiente no inventário para plantar.");
-        }
+        } 
     } else {
         //console.log("Item não encontrado no inventário.");
     }

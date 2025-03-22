@@ -19,7 +19,7 @@ botaoInventario.addEventListener('click', () => {
         setTimeout(() => {
             inventario.style.display = 'none';
             //console.log("Inventário fechado automaticamente.");
-        }, 8000); // 8 segundos -> verificar se é um bom tempo!
+        }, 15000); // 8 segundos -> verificar se é um bom tempo!
     }
 });
 

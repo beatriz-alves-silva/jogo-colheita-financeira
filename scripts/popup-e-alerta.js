@@ -15,12 +15,11 @@ export function verificarMoedas() {
         COMO RECOMPENSA,<br>
         VOCÊ GANHOU <span style="color: #3e8948;">R$ 50 EXTRAS</span>.<br>
         CONTINUE ACUMULANDO<br>
-        PARA ALCANÇAR MAIS METAS!</p>
+        PARA ALCANÇAR NOVAS METAS!</p>
     </div>
 `;
       ultimoMarco += 500; // atualiza o último marco atingido
-      moedasUsuario += 50; // adiciona a recompensa
-      atualizarMoedas(); // atualiza a exibição das moedas na tela
+      atualizarMoedas(moedasUsuario + 50); // atualiza a exibição das moedas na tela
       
       // exibe o pop-up
       popup.style.display = "flex";

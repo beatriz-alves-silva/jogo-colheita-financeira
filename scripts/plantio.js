@@ -67,10 +67,14 @@ function plantarItem(area) {
         area.dataset.tempoSemRegar =  tempoInicial;
 
         // define estágios de crescimento da planta selecionada
-        const growthStages = estagiosPlanta(plantaSelecionada);
+        const growthData = estagiosPlanta(plantaSelecionada);
+        const growthStages = growthData.imagens;
+        const growthTime = growthData.tempo;
+
         area.dataset.growthStage = 0;
         area.dataset.growthStages = JSON.stringify(growthStages);
         area.dataset.planta = plantaSelecionada;
+        area.dataset.tempoCrescimento = growthTime;
         area.style.backgroundImage = `url(${growthStages[0]})`;
         area.dataset.regado = false;
 
@@ -89,8 +93,9 @@ function plantarItem(area) {
 
 function crescimentoPlanta(area) {
         const growthStages = JSON.parse(area.dataset.growthStages); 
-        let currentStage = parseInt(area.dataset.growthStage); // obtém o estágio atual
-    
+        let currentStage = parseInt(area.dataset.growthStage);
+        const growthTime = parseInt(area.dataset.tempoCrescimento);
+
         // configura um intervalo para alternar os estágios de crescimento
         const growthInterval = setInterval(() => {
             currentStage++;
@@ -108,7 +113,7 @@ function crescimentoPlanta(area) {
                 //console.log(`Planta na área ${area.dataset.id} está completamente crescida!`);
                 //console.log(`Area pronta para colheita? ${area.dataset.readyToHarvest}`);
             }
-        }, 10000); // tempo entre os estágios
+        }, growthTime); // tempo entre os estágios
 }
   // função para usar (plantar) um item
 function usarItem(id) {
@@ -165,52 +170,71 @@ function harvestPlant(area) {
 // função para obter os estágios de crescimento de acordo com a planta
 function estagiosPlanta(planta) {
     const estagiosPlantaData = {
-        trigo: [
-            '/assets/images/trigo/nivel1.png',
-            '/assets/images/trigo/nivel2.png',
-            '/assets/images/trigo/nivel3.png',
-            '/assets/images/trigo/nivel4.png',
-            '/assets/images/trigo/nivel5.gif'
-        ],
-        alface: [
-            '/assets/images/alface/nivel1.png',
-            '/assets/images/alface/nivel2.png',
-            '/assets/images/alface/nivel3.png',
-            '/assets/images/alface/nivel4.png',
-            '/assets/images/alface/nivel5.gif'
-        ],
-        cenoura: [
-            '/assets/images/cenoura/nivel1.png',
-            '/assets/images/cenoura/nivel2.png',
-            '/assets/images/cenoura/nivel3.png',
-            '/assets/images/cenoura/nivel4.png',
-            '/assets/images/cenoura/nivel5.gif'
-        ],
-        tomate: [
-            '/assets/images/tomate/nivel1.png',
-            '/assets/images/tomate/nivel2.png',
-            '/assets/images/tomate/nivel3.png',
-            '/assets/images/tomate/nivel4.png',
-            '/assets/images/tomate/nivel5.gif'
-        ],
-        abobora: [
-            '/assets/images/abobora/nivel1.png',
-            '/assets/images/abobora/nivel2.png',
-            '/assets/images/abobora/nivel3.png',
-            '/assets/images/abobora/nivel4.png',
-            '/assets/images/abobora/nivel5.gif'
-        ],
-        beterraba: [
-            '/assets/images/beterraba/nivel1.png',
-            '/assets/images/beterraba/nivel2.png',
-            '/assets/images/beterraba/nivel3.png',
-            '/assets/images/beterraba/nivel4.png',
-            '/assets/images/beterraba/nivel4.png'
-        ],
+        trigo: {
+            imagens: [
+                '/assets/images/trigo/nivel1.png',
+                '/assets/images/trigo/nivel2.png',
+                '/assets/images/trigo/nivel3.png',
+                '/assets/images/trigo/nivel4.png',
+                '/assets/images/trigo/nivel5.gif'
+            ],
+            tempo: 28000
+        },
+        alface: {
+            imagens: [
+                '/assets/images/alface/nivel1.png',
+                '/assets/images/alface/nivel2.png',
+                '/assets/images/alface/nivel3.png',
+                '/assets/images/alface/nivel4.png',
+                '/assets/images/alface/nivel5.gif'
+            ],
+            tempo: 24000
+        },
+        cenoura: {
+            imagens: [
+                '/assets/images/cenoura/nivel1.png',
+                '/assets/images/cenoura/nivel2.png',
+                '/assets/images/cenoura/nivel3.png',
+                '/assets/images/cenoura/nivel4.png',
+                '/assets/images/cenoura/nivel5.gif'
+            ],
+            tempo: 25000
+        },
+        
+        tomate: {
+            imagens: [
+                '/assets/images/tomate/nivel1.png',
+                '/assets/images/tomate/nivel2.png',
+                '/assets/images/tomate/nivel3.png',
+                '/assets/images/tomate/nivel4.png',
+                '/assets/images/tomate/nivel5.gif'
+            ],
+            tempo: 22000
+        },
+        abobora: {
+            imagens: [
+                '/assets/images/abobora/nivel1.png',
+                '/assets/images/abobora/nivel2.png',
+                '/assets/images/abobora/nivel3.png',
+                '/assets/images/abobora/nivel4.png',
+                '/assets/images/abobora/nivel5.gif'
+            ],
+            tempo: 23000
+        },
+        beterraba: {
+            imagens: [
+                '/assets/images/beterraba/nivel1.png',
+                '/assets/images/beterraba/nivel2.png',
+                '/assets/images/beterraba/nivel3.png',
+                '/assets/images/beterraba/nivel4.png',
+                '/assets/images/beterraba/nivel5.gif'
+            ],
+            tempo: 16000
+        },
     };
-
-    return estagiosPlantaData[planta] || [];
+    return estagiosPlantaData[planta] || { imagens: [], tempo: 10000 };
 }
+
 // adiciona eventos nas áreas de plantação
 areaPlantacao.forEach((area) => {
     // evento para quando o mouse entra na área

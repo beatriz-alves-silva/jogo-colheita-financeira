@@ -162,6 +162,14 @@ i:not(:hover) {
     justify-content: center;
 }
 
+.main .moedas .qtde-moedas:hover {
+    box-shadow: 2px 2px 8px #ffd900ce;
+}
+
+.main .moedas:hover {
+    cursor: pointer;
+}
+
 .main .moedas .qtde-moedas {
     position: relative;
     background-color: #8c5a3c;

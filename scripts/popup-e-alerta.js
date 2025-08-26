@@ -4,6 +4,11 @@ const popup = document.querySelector('.popup');
 const botaoFechar = document.querySelector('.botao-fechar-popup');
 const recompensaDisplay = document.getElementById('msg-recompensa');
 
+const audioAlertaErva = document.getElementById('audio-alerta-erva');
+const audioSelecionarSemente = document.getElementById('audio-selecionar-semente');
+
+
+
 let ultimoMarco = 0; // armazena o último valor de moedas que concedeu a recompensa
 
 export function verificarMoedas() {
@@ -42,13 +47,31 @@ const alerta = document.getElementById('alerta');
 const botaoFecharAlerta = document.querySelector('.botao-fechar-alerta');
 const alertaDisplay = document.getElementById('msg-alerta');
 
-export function exibirAlerta(mensagem){
-  alertaDisplay.textContent = mensagem;
-  alerta.style.display = "flex";
+function tocarSom(audioElement) {
+    if (audioElement) {
+        audioElement.currentTime = 0;
+        audioElement.play();
+    }
+}
 
-  setTimeout(() => {
-    alerta.style.display = "none";
-}, 10000);
+export function exibirAlerta(mensagem, tipoDeSom = 'erro') { // tipoDeSom pode ser 'erva', 'erro' etc
+    alertaDisplay.textContent = mensagem;
+    alerta.style.display = "flex";
+
+    switch (tipoDeSom) {
+        case 'erva':
+            tocarSom(audioAlertaErva);
+            break;
+        case 'erro':
+            tocarSom(audioSelecionarSemente);
+            break;
+
+        default:
+            //tocarSom(audioAlertaErro);
+            break;
+    }
+
+    setTimeout(() => { alerta.style.display = "none"; }, 10000);
 }
 
 botaoFecharAlerta.addEventListener("click", () => {

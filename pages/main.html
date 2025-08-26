@@ -25,8 +25,7 @@
     <div class="main">
         <div class="moedas">
             <span class="qtde-moedas" id="qtde-moedas"></span>
-
-                <div class="popup-cedulas" id="popup-cedulas"></div>
+            <div class="popup-cedulas" id="popup-cedulas"></div>
         </div>
         
         <div class="plantacao">
@@ -58,35 +57,35 @@
             <div class="botao">
                 <button class="botao"  id="botao-pause">
                     <img src="/assets/images/icones/pause.png" alt="">
-                    <audio class="narracao" id="audio-pause" src="/"></audio>
+                    <audio class="narracao" id="audio-pause" src="/assets/audio/menu.mp3"></audio>
                 </button>
             </div>
     
             <div class="botao">
                 <button class="botao" id="botao-loja">
                     <img src="/assets/images/icones/loja.png" alt="">
-                        <audio class="narracao" id="audio-loja" src="/"></audio>
+                        <audio class="narracao" id="audio-loja" src="/assets/audio/loja.mp3"></audio>
                 </button>
             </div>
     
             <div class="botao">
                 <button class="botao" id="botao-inventario">
                     <img src="/assets/images/icones/bau.png" alt="">
-                        <audio class="narracao" id="audio-inventario" src="/"></audio>
+                        <audio class="narracao" id="audio-inventario" src="/assets/audio/inventario.mp3"></audio>
                 </button>
             </div>
     
             <div class="botao">
                 <button class="botao" id="botao-regador">
                     <img src="/assets/images/icones/regador.png" alt="">
-                    <audio class="narracao" id="audio-regador" src="/"></audio>           
+                    <audio class="narracao" id="audio-regador" src="/assets/audio/regador.mp3"></audio>           
                 </button>
             </div>
 
             <div class="botao">
                 <button class="botao" id="botao-herbicida">
                     <img src="/assets/images/icones/herbicida.png" alt="">  
-                        <audio class="narracao" id="audio-herbicida" src="/"></audio>
+                        <audio class="narracao" id="audio-herbicida" src="/assets/audio/herbicida.mp3"></audio>
                 </button>
             </div>
         </div>
@@ -154,7 +153,7 @@
                 <span class="qtde-inventario" data-id="beterraba"></span>
                 <img src="/assets/images/beterraba/semente-beterraba.png" 
                 class="botao"
-                alt="ícone de semente de beterraba" 
+                alt="ícone de semente de beterraba"
                 id="beterraba" 
                 data-planta="beterraba"
                 data-cursor="/assets/images/beterraba/1-64.png">
@@ -167,6 +166,8 @@
         <span class="mensagem" id="msg-recompensa"></span>
             <button class="botao-fechar-popup">X</button>
             <audio class="narracao" id="audio-recompensa" src="/"></audio>
+            <audio id="audio-alerta-erva" class="som-jogo" src="/assets/audio/erva-daninha-encontrada.mp3"></audio>
+            <audio id="audio-selecionar-semente" class="som-jogo" src="/assets/audio/selecione-semente-para-plantar.mp3"></audio>
         </div>
     </div>
 
@@ -179,10 +180,22 @@
 
     <div class="telaPause">
         <div class="botoes__telaPause">
-            <button class="botao" id="voltar-jogo">VOLTAR AO JOGO</button>
-            <button class="botao" id="botaoVolume">VOLUME</button>
-            <button class="botao" id="botaoTutorial">VER TUTORIAL</button>
-            <button class="botao" id="botao-voltar-menu">VOLTAR MENU</button>
+            <button class="botao" id="voltar-jogo">
+                VOLTAR AO JOGO
+                <audio class="narracao" id="audio-voltar-jogo" src="/assets/audio/voltar-ao-jogo.mp3"></audio>
+            </button>
+            <button class="botao" id="botaoVolume">
+                VOLUME
+                <audio class="narracao" id="audio-volume" src="/assets/audio/volume.mp3"></audio>
+            </button>
+            <button class="botao" id="botaoTutorial">
+                VER TUTORIAL
+                <audio class="narracao" id="audio-tutorial" src="/assets/audio/ver-tutorial.mp3"></audio>
+            </button>
+            <button class="botao" id="botao-voltar-menu">
+                VOLTAR MENU
+                <audio class="narracao" id="audio-voltar-menu" src="/assets/audio/voltar-menu.mp3"></audio>
+            </button>
         </div>
     </div>
 
@@ -328,6 +341,7 @@
     <script type="module" src="/scripts/q-learning-novo.js"></script>
     <script type="module" src="/scripts/cedulas.js"></script>
     <script type="module" src="/scripts/efeitos-tela.js"></script>
+    <script type="module" src="/scripts/sons-main.js"></script>
 
 </body>
 </html> 

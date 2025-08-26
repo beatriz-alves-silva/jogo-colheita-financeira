@@ -3,26 +3,19 @@ import { areaPlantacao } from "./plantio.js";
 const regador = document.getElementById('botao-regador');
 export let regadorAtivo = false; // controla se o regador está ativo 
 
-// função que ativa/desativa o regador ao clicar no botão
+function desativarRegador() {
+    regadorAtivo = false;
+    document.body.style.cursor = 'auto';
+    console.log("Regador foi desativado.");
+}
+
 regador.addEventListener('click', () => {
-console.log("Botão regador selecionado.");
-   regadorAtivo = !regadorAtivo; // alterna o estado do regador
-
-    console.log(regadorAtivo);
-
     if (regadorAtivo) {
-        // altera o cursor para o ícone de regador
-        document.body.style.cursor = 'url("/assets/images/cursor/regador.png"), auto';
-
-        /*setTimeout(() => {
-            regadorAtivo = false;
-            document.body.style.cursor = 'auto'; // volta o cursor ao padrão
-            //console.log("Regador desativado automaticamente.");
-        }, 10000);*/
-
+        desativarRegador();
     } else {
-        // volta o cursor para o padrão
-        document.body.style.cursor = 'auto';
+        regadorAtivo = true;
+        document.body.style.cursor = 'url("/assets/images/cursor/regador.png"), auto';
+        console.log("Regador ativado. Clique em uma área para regar.");
     }
 });
 
@@ -40,12 +33,12 @@ function regarPlanta(area) {
     }
 }
 
-// Espera o DOM estar carregado antes de adicionar os eventos
 document.addEventListener("DOMContentLoaded", () => {
     areaPlantacao.forEach((area) => {
         area.addEventListener('click', () => {
             if (regadorAtivo) {
                 regarPlanta(area);
+                desativarRegador();
             }
         });
     });

@@ -1,7 +1,8 @@
 import { vetorInventario, atualizarMoedas, atualizarInventario, salvarNoLocalStorage, getMoedasUsuario, setMoedasUsuario } from "./inventario-e-moeda.js";
-import { calcularRecompensa, atualizarQTable, identificarEstado } from "./q-learning.js";
+import { calcularRecompensa, atualizarQTable, identificarEstado } from "./q-learning-novo.js";
 import { regadorAtivo } from "./regador.js";
 import { exibirAlerta } from "./popup-e-alerta.js";
+
 
 export const areaPlantacao = document.querySelectorAll('.area-plantio'); // areas de plantação
 let CursorSelecionado = null; // icone do cursor
@@ -67,10 +68,14 @@ function plantarItem(area) {
         area.dataset.tempoSemRegar =  tempoInicial;
 
         // define estágios de crescimento da planta selecionada
-        const growthStages = estagiosPlanta(plantaSelecionada);
+        const growthData = estagiosPlanta(plantaSelecionada);
+        const growthStages = growthData.imagens;
+        const growthTime = growthData.tempo;
+
         area.dataset.growthStage = 0;
         area.dataset.growthStages = JSON.stringify(growthStages);
         area.dataset.planta = plantaSelecionada;
+        area.dataset.tempoCrescimento = growthTime;
         area.style.backgroundImage = `url(${growthStages[0]})`;
         area.dataset.regado = false;
 
@@ -89,38 +94,32 @@ function plantarItem(area) {
 
 function crescimentoPlanta(area) {
         const growthStages = JSON.parse(area.dataset.growthStages); 
-        let currentStage = parseInt(area.dataset.growthStage); // obtém o estágio atual
-    
-        // configura um intervalo para alternar os estágios de crescimento
+        let currentStage = parseInt(area.dataset.growthStage);
+        const growthTime = parseInt(area.dataset.tempoCrescimento);
+
         const growthInterval = setInterval(() => {
             currentStage++;
             if (currentStage < growthStages.length - 1) {
-                // atualiza a imagem do fundo
                 area.style.backgroundImage = `url(${growthStages[currentStage]})`;
                 area.style.backgroundRepeat = 'no-repeat';
                 area.style.backgroundSize = '80px 80px';
                 area.style.backgroundPosition = 'center';
-                area.dataset.growthStage = currentStage; // atualiza o estágio
+                area.dataset.growthStage = currentStage;
             } else {
-                clearInterval(growthInterval); // para o intervalo quando a planta atinge o estágio final
-                area.dataset.readyToHarvest = 'true'; // planta está pronta para colheita
-                area.style.backgroundImage = `url(${growthStages[growthStages.length - 1]})`; // usa a imagem do nível 5
-                //console.log(`Planta na área ${area.dataset.id} está completamente crescida!`);
-                //console.log(`Area pronta para colheita? ${area.dataset.readyToHarvest}`);
+                clearInterval(growthInterval);
+                area.dataset.readyToHarvest = 'true';
+                area.style.backgroundImage = `url(${growthStages[growthStages.length - 1]})`;
             }
-        }, 10000); // tempo entre os estágios
+        }, growthTime);
 }
-  // função para usar (plantar) um item
 function usarItem(id) {
     const semente = vetorInventario.find((s) => s.id === id);
-    //console.log("Inventário atual:", semente);
 
     if (semente) {
         if (semente.qtdeInventario > 0) {
-            semente.qtdeInventario--; // decrementa a quantidade no inventário
+            semente.qtdeInventario--;
             atualizarInventario();
             salvarNoLocalStorage();
-            //console.log(`Plantando ${id}`);
         } 
     } else {
         //console.log("Item não encontrado no inventário.");
@@ -133,8 +132,6 @@ function harvestPlant(area) {
         const semente = vetorInventario.find(s => s.id === plantaId); // encontra a planta com base no nome
 
         if (semente) {
-            // const recompensa = Math.floor(semente.valorVenda * 1.5); // recompensa sem IA
-
             if(area.dataset.tempoSemRegar > 1800){
                 area.dataset.tempoSemRegar = '-1'; // significa que a planta não foi regada
                 //console.log(`Tempo sem regar: ${area.dataset.tempoSemRegar} segundos`);
@@ -142,7 +139,6 @@ function harvestPlant(area) {
                 //console.log(`Tempo sem regar: ${area.dataset.tempoSemRegar} segundos`);
             }
 
-                //moedasUsuario += recompensa; // adiciona as moedas
                 atualizarMoedas(); // atualiza o display
                 salvarNoLocalStorage(); // salva o estado
 
@@ -153,64 +149,79 @@ function harvestPlant(area) {
                 area.dataset.planta = ''; // remove o ID da planta
 
                 desativarCursor(); // desativa o cursor
-                //console.log(`Colheu ${plantaId} e ganhou ${recompensa} moedas!`);
-                // console.log(`Moedas totais: ${moedasUsuario}`);
             }
         } else {
             exibirAlerta('A planta ainda não está pronta para ser colhida!');
-            //alert('A planta ainda não está pronta para ser colhida!');
         }
 }
 
-// função para obter os estágios de crescimento de acordo com a planta
 function estagiosPlanta(planta) {
     const estagiosPlantaData = {
-        trigo: [
-            '/assets/images/trigo/nivel1.png',
-            '/assets/images/trigo/nivel2.png',
-            '/assets/images/trigo/nivel3.png',
-            '/assets/images/trigo/nivel4.png',
-            '/assets/images/trigo/nivel5.gif'
-        ],
-        alface: [
-            '/assets/images/alface/nivel1.png',
-            '/assets/images/alface/nivel2.png',
-            '/assets/images/alface/nivel3.png',
-            '/assets/images/alface/nivel4.png',
-            '/assets/images/alface/nivel5.gif'
-        ],
-        cenoura: [
-            '/assets/images/cenoura/nivel1.png',
-            '/assets/images/cenoura/nivel2.png',
-            '/assets/images/cenoura/nivel3.png',
-            '/assets/images/cenoura/nivel4.png',
-            '/assets/images/cenoura/nivel5.gif'
-        ],
-        tomate: [
-            '/assets/images/tomate/nivel1.png',
-            '/assets/images/tomate/nivel2.png',
-            '/assets/images/tomate/nivel3.png',
-            '/assets/images/tomate/nivel4.png',
-            '/assets/images/tomate/nivel5.gif'
-        ],
-        abobora: [
-            '/assets/images/abobora/nivel1.png',
-            '/assets/images/abobora/nivel2.png',
-            '/assets/images/abobora/nivel3.png',
-            '/assets/images/abobora/nivel4.png',
-            '/assets/images/abobora/nivel5.gif'
-        ],
-        beterraba: [
-            '/assets/images/beterraba/nivel1.png',
-            '/assets/images/beterraba/nivel2.png',
-            '/assets/images/beterraba/nivel3.png',
-            '/assets/images/beterraba/nivel4.png',
-            '/assets/images/beterraba/nivel4.png'
-        ],
+        trigo: {
+            imagens: [
+                '/assets/images/trigo/nivel1.png',
+                '/assets/images/trigo/nivel2.png',
+                '/assets/images/trigo/nivel3.png',
+                '/assets/images/trigo/nivel4.png',
+                '/assets/images/trigo/nivel5.gif'
+            ],
+            tempo: 4000
+        },
+        alface: {
+            imagens: [
+                '/assets/images/alface/nivel1.png',
+                '/assets/images/alface/nivel2.png',
+                '/assets/images/alface/nivel3.png',
+                '/assets/images/alface/nivel4.png',
+                '/assets/images/alface/nivel5.gif'
+            ],
+            tempo: 4000
+        },
+        cenoura: {
+            imagens: [
+                '/assets/images/cenoura/nivel1.png',
+                '/assets/images/cenoura/nivel2.png',
+                '/assets/images/cenoura/nivel3.png',
+                '/assets/images/cenoura/nivel4.png',
+                '/assets/images/cenoura/nivel5.gif'
+            ],
+            tempo: 4000
+        },
+        
+        tomate: {
+            imagens: [
+                '/assets/images/tomate/nivel1.png',
+                '/assets/images/tomate/nivel2.png',
+                '/assets/images/tomate/nivel3.png',
+                '/assets/images/tomate/nivel4.png',
+                '/assets/images/tomate/nivel5.gif'
+            ],
+            tempo: 4000
+        },
+        abobora: {
+            imagens: [
+                '/assets/images/abobora/nivel1.png',
+                '/assets/images/abobora/nivel2.png',
+                '/assets/images/abobora/nivel3.png',
+                '/assets/images/abobora/nivel4.png',
+                '/assets/images/abobora/nivel5.gif'
+            ],
+            tempo: 4000
+        },
+        beterraba: {
+            imagens: [
+                '/assets/images/beterraba/nivel1.png',
+                '/assets/images/beterraba/nivel2.png',
+                '/assets/images/beterraba/nivel3.png',
+                '/assets/images/beterraba/nivel4.png',
+                '/assets/images/beterraba/nivel5.gif'
+            ],
+            tempo: 4000
+        },
     };
-
-    return estagiosPlantaData[planta] || [];
+    return estagiosPlantaData[planta] || { imagens: [], tempo: 10000 };
 }
+
 // adiciona eventos nas áreas de plantação
 areaPlantacao.forEach((area) => {
     // evento para quando o mouse entra na área

@@ -59,6 +59,7 @@ body {
     padding: 10px;
     background-color: #8c5a3c ;
     border: 4px solid #b86f50;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.653);
     border-radius: 8px;
     width: 680px;
 }
@@ -167,6 +168,7 @@ i:not(:hover) {
     padding: 15px;
     border: 4px solid #b86f50;
     border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.653);
     font-size: 50px;
     text-shadow: 2px 2px 0 #b86f50;
     color: #ffd900ce;
@@ -298,7 +300,133 @@ i:not(:hover) {
     display: none;
     z-index: 1; /* fica atrás da tela de pausa */
 }
+.tela-volume {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; 
 
+    background-color: #ffba81;
+    border: 4px solid #b86f50;
+    border-radius: 20px;
+    color: #8c5a3c;
+    font-family: 'vcr', sans-serif;
+    font-size: 40px;
+    text-shadow: 2px 2px 0 #b86c4b;
+    padding: 20px 40px;
+    width: 600px;
+    height: 350px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.volume-control .direita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.volume-config {
+    -webkit-appearance: none; /* remove o estilo padrão no Chrome/Safari */
+    appearance: none;
+    width: 150px; 
+    background: #3e8948;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 #b86c4b;
+}
+
+/* estilo para o "polegar" (o botão que o usuário arrasta) */
+.volume-config::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 1px;
+height: 15px; 
+background: #b86c4b;
+cursor: pointer; 
+}
+
+/* estilo do "polegar" em Firefox */
+.volume-config::-moz-range-thumb {
+width: 20px;
+height: 20px;
+background: #b86c4b;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.volume-config::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: #ffba81;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 #b86c4b;
+}
+
+/* estilo da barra quando o controle é movido */
+.volume-config:focus {
+background: #b86c4b;
+}
+
+.tela-volume .volumes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-x {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 15px;
+    background-color: #ffba81;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'pixelart', sans-serif;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #b86c4b;
+    text-align: center;
+    border: 2px solid #b86f50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.titulo-botao {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.btn-x:hover {
+    background-color: #b86c4b;
+    color: #ffba81;
+    border: 2px solid #ffba81;
+    transform: scale(1.1);
+}
 @media (max-width: 1720px) {
     .main .plantacao {
         width: 660px;

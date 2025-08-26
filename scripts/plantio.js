@@ -165,7 +165,7 @@ function estagiosPlanta(planta) {
                 '/assets/images/trigo/nivel4.png',
                 '/assets/images/trigo/nivel5.gif'
             ],
-            tempo: 4000
+            tempo: 10000
         },
         alface: {
             imagens: [
@@ -175,7 +175,7 @@ function estagiosPlanta(planta) {
                 '/assets/images/alface/nivel4.png',
                 '/assets/images/alface/nivel5.gif'
             ],
-            tempo: 4000
+            tempo: 10000
         },
         cenoura: {
             imagens: [
@@ -185,7 +185,7 @@ function estagiosPlanta(planta) {
                 '/assets/images/cenoura/nivel4.png',
                 '/assets/images/cenoura/nivel5.gif'
             ],
-            tempo: 4000
+            tempo: 10000
         },
         
         tomate: {
@@ -196,7 +196,7 @@ function estagiosPlanta(planta) {
                 '/assets/images/tomate/nivel4.png',
                 '/assets/images/tomate/nivel5.gif'
             ],
-            tempo: 4000
+            tempo: 10000
         },
         abobora: {
             imagens: [
@@ -206,7 +206,7 @@ function estagiosPlanta(planta) {
                 '/assets/images/abobora/nivel4.png',
                 '/assets/images/abobora/nivel5.gif'
             ],
-            tempo: 4000
+            tempo: 10000
         },
         beterraba: {
             imagens: [
@@ -216,7 +216,7 @@ function estagiosPlanta(planta) {
                 '/assets/images/beterraba/nivel4.png',
                 '/assets/images/beterraba/nivel5.gif'
             ],
-            tempo: 4000
+            tempo: 10000
         },
     };
     return estagiosPlantaData[planta] || { imagens: [], tempo: 10000 };

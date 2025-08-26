@@ -4,27 +4,40 @@ import { exibirAlerta } from "./popup-e-alerta.js";
 export let herbicidaAtivo = false;
 const herbicida = document.getElementById('botao-herbicida');
 const ervaDaninhaGif = '/assets/images/erva-daninha.gif';
-const tempoMin = 50000; // tempo mínimo para gerar erva daninha
+const tempoMin = 50000;
 const tempoMax = 150000;
-
-// converter NodeList para um Array
 const areaPlantacaoArray = Array.from(areaPlantacao);
 
-// função que ativa/desativa o herbicida ao clicar no botão
-herbicida.addEventListener('click', () => {
-    herbicidaAtivo = !herbicidaAtivo; // alterna o estado do herbicida
-    if (herbicidaAtivo) {
+function desativarHerbicida() {
+    herbicidaAtivo = false;
+    document.body.style.cursor = 'auto';
+    console.log("Herbicida desativado após o uso.");
+}
 
-        // altera o cursor para o ícone de herbicida
-        document.body.style.cursor = 'url("/assets/images/cursor/herbicida.png"), auto';
-        /*setTimeout(() => {
-            herbicidaAtivo = false;
-            document.body.style.cursor = 'auto'; // volta o cursor ao padrão
-        }, 10000);*/
+herbicida.addEventListener('click', () => {
+    if (herbicidaAtivo) {
+        desativarHerbicida();
     } else {
-        // volta o cursor para o padrão
-        document.body.style.cursor = 'auto';
+        herbicidaAtivo = true;
+        document.body.style.cursor = 'url("/assets/images/cursor/herbicida.png"), auto';
+        console.log("Herbicida ativado. Clique em uma erva daninha para removê-la.");
     }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    areaPlantacao.forEach(area => {
+        area.addEventListener('click', () => {
+            if (herbicidaAtivo && area.dataset.erva === 'true') {
+                const tempoCorrido = Math.floor(Date.now() / 1000);
+                area.style.backgroundImage = '';
+                area.style.backgroundColor = "";
+                area.dataset.erva = "false";
+                area.dataset.tempoComErva = (tempoCorrido - parseInt(area.dataset.tempoComErva)).toString();
+
+                desativarHerbicida();
+            }
+        });
+    });
 });
 
 

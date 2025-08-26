@@ -6,7 +6,6 @@ export let regadorAtivo = false; // controla se o regador está ativo
 function desativarRegador() {
     regadorAtivo = false;
     document.body.style.cursor = 'auto';
-    console.log("Regador foi desativado.");
 }
 
 regador.addEventListener('click', () => {
@@ -15,7 +14,6 @@ regador.addEventListener('click', () => {
     } else {
         regadorAtivo = true;
         document.body.style.cursor = 'url("/assets/images/cursor/regador.png"), auto';
-        console.log("Regador ativado. Clique em uma área para regar.");
     }
 });
 

@@ -11,7 +11,6 @@ const areaPlantacaoArray = Array.from(areaPlantacao);
 function desativarHerbicida() {
     herbicidaAtivo = false;
     document.body.style.cursor = 'auto';
-    console.log("Herbicida desativado após o uso.");
 }
 
 herbicida.addEventListener('click', () => {
@@ -20,7 +19,6 @@ herbicida.addEventListener('click', () => {
     } else {
         herbicidaAtivo = true;
         document.body.style.cursor = 'url("/assets/images/cursor/herbicida.png"), auto';
-        console.log("Herbicida ativado. Clique em uma erva daninha para removê-la.");
     }
 });
 
@@ -71,7 +69,7 @@ function gerarErvaDaninha() {
     areaEscolhida.style.backgroundColor = "rgba(62, 137, 72, 0.76)";
     areaEscolhida.dataset.tempoComErva = Math.floor(Date.now() / 1000);
 
-    exibirAlerta(`ERVA DANINHA NA ÁREA ${areaEscolhida.dataset.id}!`);
+    exibirAlerta(`ERVA DANINHA NA ÁREA ${areaEscolhida.dataset.id}!`, 'erva');
     afetarVizinhos(areaEscolhida);
 
     // registra o evento de remoção da erva daninha

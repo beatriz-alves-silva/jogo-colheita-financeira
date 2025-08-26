@@ -9,17 +9,24 @@
     <link rel="stylesheet" href="/styles/popup.css">
     <link rel="stylesheet" href="/styles/loja.css">
     <link rel="stylesheet" href="/styles/alerta.css">
+    <link rel="stylesheet" href="/styles/cedulas.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
     <title>Colheita Financeira</title>
 </head>
 <body>
+
+    <audio id="musica-fundo" src="/assets/audio/background-sound.mp3" loop autoplay></audio>
+    <audio id="click-som" src="/assets/audio/click3.mp3"></audio>
+
     <div class="overlay"></div>
 
     <div class="main">
         <div class="moedas">
             <span class="qtde-moedas" id="qtde-moedas"></span>
+
+                <div class="popup-cedulas" id="popup-cedulas"></div>
         </div>
         
         <div class="plantacao">
@@ -51,30 +58,35 @@
             <div class="botao">
                 <button class="botao"  id="botao-pause">
                     <img src="/assets/images/icones/pause.png" alt="">
+                    <audio class="narracao" id="audio-pause" src="/"></audio>
                 </button>
             </div>
     
             <div class="botao">
                 <button class="botao" id="botao-loja">
                     <img src="/assets/images/icones/loja.png" alt="">
+                        <audio class="narracao" id="audio-loja" src="/"></audio>
                 </button>
             </div>
     
             <div class="botao">
                 <button class="botao" id="botao-inventario">
                     <img src="/assets/images/icones/bau.png" alt="">
+                        <audio class="narracao" id="audio-inventario" src="/"></audio>
                 </button>
             </div>
     
             <div class="botao">
                 <button class="botao" id="botao-regador">
-                    <img src="/assets/images/icones/regador.png" alt="">           
+                    <img src="/assets/images/icones/regador.png" alt="">
+                    <audio class="narracao" id="audio-regador" src="/"></audio>           
                 </button>
             </div>
 
             <div class="botao">
                 <button class="botao" id="botao-herbicida">
-                    <img src="/assets/images/icones/herbicida.png" alt="">           
+                    <img src="/assets/images/icones/herbicida.png" alt="">  
+                        <audio class="narracao" id="audio-herbicida" src="/"></audio>
                 </button>
             </div>
         </div>
@@ -154,6 +166,7 @@
         <div class="popup__conteudo">
         <span class="mensagem" id="msg-recompensa"></span>
             <button class="botao-fechar-popup">X</button>
+            <audio class="narracao" id="audio-recompensa" src="/"></audio>
         </div>
     </div>
 
@@ -168,8 +181,8 @@
         <div class="botoes__telaPause">
             <button class="botao" id="voltar-jogo">VOLTAR AO JOGO</button>
             <button class="botao" id="botaoVolume">VOLUME</button>
-            <button onclick="navigateTo('/pages/tutorial.html')" ="botao" id="botaoTutorial">VER TUTORIAL</button>
-            <button onclick="navigateTo('/index.html')" class="botao" id="botao-voltar-menu">VOLTAR MENU</button>
+            <button class="botao" id="botaoTutorial">VER TUTORIAL</button>
+            <button class="botao" id="botao-voltar-menu">VOLTAR MENU</button>
         </div>
     </div>
 
@@ -269,6 +282,42 @@
         </div>
     </div>
 
+    <section class="tela-volume" id="tela-volume">
+        <div class="titulo-botao">
+            <h1>VOLUME</h1>
+            <button class="btn-x" id="botao-voltar-volume-do-pause">X</button>
+        </div>
+
+        <div class="volumes">
+            <div class="volume-control">
+                <div class="esquerda">
+                    <h2 for="volume">MÚSICA</h2>
+                </div>
+                <div class="direita">
+                    <input class="volume-config" type="range" id="volume-musica" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+
+            <div class="volume-control">
+                <div class="esquerda">
+                    <h2 for="volume">JOGO</h2>
+                </div>
+                <div class="direita">
+                    <input class="volume-config" type="range" id="volume-jogo" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+
+            <div class="volume-control">
+                <div class="esquerda">
+                    <h2 for="volume">NARRAÇÃO</h2>
+                </div>
+                <div class="direita">
+                    <input class="volume-config" type="range" id="volume-narracao" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- <script src="/scripts/main.js"></script> -->
     <script type="module" src="/scripts/inventario-e-moeda.js"></script>
     <script type="module" src="/scripts/plantio.js"></script>
@@ -276,9 +325,9 @@
     <script type="module" src="/scripts/regador.js"></script>
     <script type="module" src="/scripts/erva-daninha.js"></script>
     <script type="module" src="/scripts/popup-e-alerta.js"></script>
-    <script type="module" src="/scripts/q-learning.js"></script>
-
-    <script src="/scripts/efeitos-tela.js"></script>
+    <script type="module" src="/scripts/q-learning-novo.js"></script>
+    <script type="module" src="/scripts/cedulas.js"></script>
+    <script type="module" src="/scripts/efeitos-tela.js"></script>
 
 </body>
 </html> 

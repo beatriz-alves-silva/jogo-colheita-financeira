@@ -1,12 +1,16 @@
 import { verificarMoedas } from "./popup-e-alerta.js";
+import { inicializarTooltip } from "./cedulas.js";
 
-const moedasDisplay = document.querySelector('.qtde-moedas');
+const qtdeMoedasSpan  = document.querySelector('.qtde-moedas');
+const moedasDisplay = document.querySelector('.moedas'); 
+
 
 // quantidade inicial de moedas do usuário
 export let moedasUsuario = 300;
 
 // inicializa os displays ao carregar a página
 window.addEventListener('DOMContentLoaded', carregarDoLocalStorage);
+inicializarTooltip(moedasDisplay);
 
 // função para salvar as informações no localStorage
 export function salvarNoLocalStorage() {
@@ -52,7 +56,7 @@ atualizarInventario();
 
 // atualiza o display das moedas
 export function atualizarMoedas() {
-    moedasDisplay.textContent = `R$ ${moedasUsuario}`;
+    qtdeMoedasSpan.textContent = `R$ ${moedasUsuario}`;
     verificarMoedas(); // verifica a qtde de moedas para dar a recompensa
 }
 
@@ -64,14 +68,12 @@ export function atualizarInventario() {
         
         // se o item for encontrado no DOM, atualiza a quantidade
         if (itemHTML) {
-            itemHTML.textContent = semente.qtdeInventario;  // atualiza a quantidade
+            itemHTML.textContent = semente.qtdeInventario;
         }
     });
     }
 
-export function getMoedasUsuario() {
-    return moedasUsuario;
-}
+export function getMoedasUsuario() { return moedasUsuario }
 
 export function setMoedasUsuario(novoValor) {
     moedasUsuario = novoValor;

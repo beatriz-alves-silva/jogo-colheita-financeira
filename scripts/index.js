@@ -1,4 +1,5 @@
 import { inicializarAudio, vincularControlesVolume } from './gerenciador-audio.js';
+import { limparQTable } from './q-learning-novo.js';
 
 const telaPrincipal = document.getElementById("tela-principal");
 const telaCreditos = document.getElementById("tela-creditos");
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     localStorage.removeItem('saldo');
     localStorage.removeItem('inventario');
+    limparQTable();
     console.log("Progresso do jogo resetado no menu inicial.");
 });
 

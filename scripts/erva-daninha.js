@@ -11,6 +11,7 @@ const areaPlantacaoArray = Array.from(areaPlantacao);
 function desativarHerbicida() {
     herbicidaAtivo = false;
     document.body.style.cursor = 'auto';
+    console.log(herbicidaAtivo);
 }
 
 herbicida.addEventListener('click', () => {
@@ -22,22 +23,30 @@ herbicida.addEventListener('click', () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    areaPlantacao.forEach(area => {
-        area.addEventListener('click', () => {
-            if (herbicidaAtivo && area.dataset.erva === 'true') {
-                const tempoCorrido = Math.floor(Date.now() / 1000);
-                area.style.backgroundImage = '';
-                area.style.backgroundColor = "";
-                area.dataset.erva = "false";
-                area.dataset.tempoComErva = (tempoCorrido - parseInt(area.dataset.tempoComErva)).toString();
+document.addEventListener('click', (event) => {
+    if (!herbicidaAtivo) {
+        return;
+    }
 
-                desativarHerbicida();
-            }
-        });
-    });
+    const elementoClicado = event.target;
+
+    if (elementoClicado.classList.contains('area-plantacao') && elementoClicado.dataset.erva === 'true') {
+        
+        const tempoCorrido = Math.floor(Date.now() / 1000);
+        elementoClicado.style.backgroundImage = '';
+        elementoClicado.style.backgroundColor = "";
+        elementoClicado.dataset.erva = "false";
+        elementoClicado.dataset.tempoComErva = (tempoCorrido - parseInt(elementoClicado.dataset.tempoComErva)).toString();
+
+        desativarHerbicida();
+
+    } else {
+        if (!elementoClicado.closest('#botao-herbicida')) {
+            exibirAlerta('NÃO HÁ ERVA DANINHA AQUI.', 'info');
+            desativarHerbicida();
+        }
+    }
 });
-
 
 function encontrarPiorArea() {
     let piorArea = null;

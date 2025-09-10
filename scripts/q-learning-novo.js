@@ -82,8 +82,8 @@ export function atualizarQTable(area, proximoEstado) {
 
     agente.aprender(estadoAtual, recompensaReal, proximoEstado);
     
-    console.log(`IA Aprendeu -> Estado: ${estadoAtual}, Recompensa Real: ${recompensaReal}`);
-    console.log("Q-Table atual:", agente.qTable);
+    //console.log(`IA Aprendeu -> Estado: ${estadoAtual}, Recompensa Real: ${recompensaReal}`);
+    //console.log("Q-Table atual:", agente.qTable);
 }
 
 export function limparQTable() {

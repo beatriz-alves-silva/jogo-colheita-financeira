@@ -31,13 +31,20 @@ function regarPlanta(area) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    areaPlantacao.forEach((area) => {
-        area.addEventListener('click', () => {
-            if (regadorAtivo) {
-                regarPlanta(area);
-                desativarRegador();
-            }
-        });
-    });
+document.addEventListener('click', (event) => {
+    if (!regadorAtivo) {
+        return;
+    }
+
+    const elementoClicado = event.target;
+
+    if (elementoClicado.classList.contains('area-plantacao') && elementoClicado.dataset.planta) {
+        regarPlanta(elementoClicado);
+        desativarRegador();
+
+    } else {
+        if (!elementoClicado.closest('#botao-regador')) {
+            desativarRegador(); 
+        }
+    }
 });

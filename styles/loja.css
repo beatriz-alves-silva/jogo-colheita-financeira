@@ -225,3 +225,43 @@
         font-size: 25px;
     }
 }
+
+.compra-confirmada-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; 
+    width: 350px;
+    height: 250px;
+    background-color: #8f5840;
+    padding: 25px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.compra-confirmada-popup.visivel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.compra-confirmada-popup img {
+    width: 80px;
+    height: 80px;
+}
+
+.compra-confirmada-popup p {
+    font-size: 1.2rem;
+    font-family: 'vcr', sans-serif;
+    color: #ffba81;
+    font-weight: bold;
+    text-transform: capitalize;
+}

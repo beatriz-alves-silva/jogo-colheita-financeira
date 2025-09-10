@@ -24,6 +24,7 @@ document.querySelectorAll('.confirmar-compra').forEach(container => {
 
     if (getMoedasUsuario() >= preco) {
         comprarItem(id, preco);
+        exibirConfirmacaoCompra(id);
     }
 
     container.style.display = 'none';
@@ -72,4 +73,23 @@ export function comprarItem(id, preco) {
     } else {
       // console.log("Item não encontrado no inventário.");
     }
+}
+
+function exibirConfirmacaoCompra(id) {
+    const popup = document.getElementById('compra-confirmada-popup');
+    const imagemPopup = document.getElementById('compra-confirmada-imagem');
+    const textoPopup = document.getElementById('compra-confirmada-texto');
+
+    const imagemItemOriginal = document.querySelector(`.item-loja img[data-planta="${id}"]`);
+    if (imagemItemOriginal) {
+        imagemPopup.src = imagemItemOriginal.src;
+    }
+    
+    textoPopup.textContent = `Você comprou ${id}!`.toUpperCase();
+
+    popup.classList.add('visivel');
+
+    setTimeout(() => {
+        popup.classList.remove('visivel');
+    }, 3000);
 }

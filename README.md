@@ -1,6 +1,6 @@
 # Jogo Educacional de Educação Financeira - **Colheita Financeira**
 
-Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA INTELIGÊNCIA ARTIFICIAL EM APLICAÇÕES COMPUTACIONAIS**. O objetivo do projeto é aplicar técnicas de inteligência artificial em aplicações computacionais para auxiliar estudantes com deficiência intelectual (DI). As aplicações desenvolvidas são testadas e disponibilizadas para uma instituição parceira chamada **ASSARTE**.
+Este projeto faz parte de um projeto de extensão da faculdade chamado **USO DA INTELIGÊNCIA ARTIFICIAL EM APLICAÇÕES COMPUTACIONAIS**. O objetivo do projeto é utilizar técnicas de inteligência artificial em aplicações computacionais para auxiliar estudantes com deficiência intelectual (DI). As aplicações desenvolvidas são testadas em uma instituição parceira.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/140520fd-ec52-46c7-9b73-bc34a29445f7" alt="Tela Principal do Jogo" width="600"/>
@@ -24,18 +24,14 @@ Este projeto já resultou na publicação de um artigo científico e outros dois
   **1.** *Desenvolvimento de um jogo educacional de educação financeira com aplicação de Inteligência Artificial*  
   Este artigo aprofundará as etapas de desenvolvimento do jogo, com foco na integração da aprendizagem por reforço (Q-learning), bem como nas decisões relacionadas ao design acessível para pessoas com deficiência intelectual.
 
-  **2.** *Jogos educacionais para pessoas com deficiência intelectual: estudos de caso, aplicação e resultados*  
-  Este artigo trará uma análise dos testes realizados na instituição parceira ASSARTE, com foco na experiência dos alunos, na usabilidade, e nos resultados obtidos com a utilização do jogo como ferramenta de apoio educacional.
-
 ---
 
 ## Descrição do Jogo
-
-O jogo tem como objetivo ensinar conceitos de educação financeira de forma acessível e divertida para pessoas com deficiência intelectual. A temática do jogo envolve a gestão de recursos, o valor do tempo no dinheiro e a recompensa por acúmulo e poupança. A mecânica do jogo é baseada em simular uma plantação onde o jogador precisa comprar sementes, plantar, regar, cuidar do solo e colher suas plantas.
+O jogo tem como objetivo ensinar conceitos de educação financeira de forma acessível e divertida. A temática do jogo envolve a gestão de recursos, o valor do tempo no dinheiro e a recompensa por acúmulo e poupança. A mecânica do jogo é baseada em simular uma plantação onde o jogador precisa comprar sementes, plantar, regar, cuidar do solo e colher suas plantas.
 
 ### Características de Acessibilidade
 
-O jogo foi desenvolvido com foco em tornar a experiência mais acessível para pessoas com deficiência intelectual, utilizando as seguintes características:
+O jogo foi desenvolvido com foco em tornar a experiência mais acessível, utilizando as seguintes características:
 
 - **Textos curtos e em caixa alta** para facilitar a leitura.
 - **Opção de ouvir todos os textos exibidos no jogo**.
@@ -86,23 +82,6 @@ O jogo utiliza uma técnica de **Aprendizagem por Reforço**, implementada com o
   - O **tempo sem regar** (a partir do momento em que a semente foi plantada).
   - O **tempo que uma erva daninha permaneceu** naquela área.
 
-### Fórmula de atualização do Q-Learning
-
-A recompensa recebida na colheita é definida com base no valor atualizado na Q-Table do agente. O algoritmo segue a fórmula padrão de Q-Learning:
-
-*Q(s, a) = Q(s, a) + α [R + γ * maxQ(s', a') - Q(s, a)]*
-
-- `s`: estado atual.  
-- `a`: ação realizada (colher a planta).  
-- `α`: taxa de aprendizado (learning rate).  
-- `γ`: fator de desconto (discount factor).  
-- `R`: recompensa imediata recebida pela ação.  
-- `maxQ(s', a')`: valor máximo de Q no próximo estado.
-
-> A **recompensa (R)** é calculada considerando o estado da planta no momento da colheita. Quanto melhor o cuidado (regas frequentes e remoção rápida de ervas daninhas), maior a recompensa.
-
----
-
 ### Influência dos Estados no Crescimento de Ervas Daninhas
 
 Além de impactar a recompensa na colheita, o **estado de cada área de plantio** influencia diretamente o surgimento de **ervas daninhas**:
@@ -131,22 +110,13 @@ A IA com Q-Learning foi implementada com o propósito de tornar o **valor das re
 
 Embora o jogo já esteja em uma versão funcional, ainda há diversas melhorias e ajustes planejados para as próximas versões. Algumas delas incluem:
 
-- **Configurações de Áudio**  
-  Adicionar sons e trilhas sonoras para enriquecer a experiência do usuário, incluindo efeitos sonoros para ações como plantar, regar, colher e remover ervas daninhas.
-
-- **Adição de Textos e Feedbacks Visuais**  
-  Complementar os textos de instruções e informações no jogo, garantindo clareza nas ações. Também estão previstas notificações para lembrar o usuário de regar as plantas e retirar as ervas daninhas das áreas de plantio.
-
 - **Sistema de Fim de Jogo e Reinício**  
-  Implementar uma mensagem de aviso quando o usuário ficar sem dinheiro e sem sementes para plantar, indicando o "fim de jogo". O jogador poderá recomeçar quantas vezes desejar, garantindo a continuidade da experiência de aprendizado.
-
-- **Melhorias Visuais**  
-  Apesar do visual atual estar satisfatório, há planos de aprimorar ainda mais a estética do jogo, tornando-o mais atrativo e imersivo para os usuários.
+  Implementar uma mensagem de aviso quando o usuário ficar sem dinheiro e sem sementes para plantar, indicando o "fim de jogo".
 
 - **Aprimoramento da Interação com Itens**  
   Refinar a interação com os itens como o regador e o herbicida, garantindo que a troca de ícones do cursor seja mais intuitiva e evitando possíveis colisões ou falhas durante a utilização das ferramentas.
 
-- **Testes com Usuários na Instituição Parceira (ASSARTE)**  
+- **Testes com Usuários na Instituição Parceira**  
   Serão realizados testes práticos com os alunos da instituição para avaliar a funcionalidade do jogo. Esses testes vão ajudar a identificar ajustes necessários, como o tempo de crescimento das sementes, o valor inicial em dinheiro, e outros aspectos da mecânica que possam melhorar a experiência de jogo.
 
 - **Exploração de Novas Tecnologias**  

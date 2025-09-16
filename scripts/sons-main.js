@@ -33,6 +33,8 @@ const audioAlface = document.querySelectorAll('.audio-alface');
 const audioCenoura = document.querySelectorAll('.audio-cenoura');
 const audioAbobora = document.querySelectorAll('.audio-abobora');
 
+const somClick = document.getElementById("click-som");
+
 let isPlayingNarration = false;
 
 function tocarNarracao(audioElement) {
@@ -66,3 +68,31 @@ adicionarNarracao(iconeBeterraba, audioBeterraba);
 adicionarNarracao(iconeAlface, audioAlface);
 adicionarNarracao(iconeCenoura, audioCenoura);
 adicionarNarracao(iconeAbobora, audioAbobora);
+
+function tocarSomClick() {
+    if (somClick) {
+        somClick.currentTime = 0;
+        somClick.play();
+    }
+}
+
+[
+    ...iconeTrigo,
+    ...iconeTomate,
+    ...iconeBeterraba,
+    ...iconeAlface,
+    ...iconeCenoura,
+    ...iconeAbobora,
+    botaoPause,
+    botaoLoja,
+    botaoRegador,
+    botaoHerbicida,
+    botaoVoltarJogo,
+    botaoVolume,
+    botaoVoltarMenu,
+    botaoTutorial
+    ].forEach(el => {
+    if (el) {
+        el.addEventListener("click", tocarSomClick);
+    }
+});

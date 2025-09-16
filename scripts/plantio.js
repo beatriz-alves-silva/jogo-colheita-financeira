@@ -1,6 +1,7 @@
 import { vetorInventario, atualizarMoedas, atualizarInventario, salvarNoLocalStorage, getMoedasUsuario, setMoedasUsuario } from "./inventario-e-moeda.js";
 import { calcularRecompensa, atualizarQTable, identificarEstado } from "./q-learning-novo.js";
 import { regadorAtivo } from "./regador.js";
+import { herbicidaAtivo } from "./erva-daninha.js";
 import { exibirAlerta } from "./popup-e-alerta.js";
 
 
@@ -43,8 +44,11 @@ planta.forEach((item) => {
 
             CursorSelecionado = cursor;
         } else {
-            exibirAlerta('NÃO HÁ SEMENTE PARA PLANTAR');
-            //console.log(`Não há sementes de ${plantaId} no inventário para selecionar.`);
+            if(herbicidaAtivo) {
+                return;
+            } else {
+                exibirAlerta('NÃO HÁ SEMENTE PARA PLANTAR');
+            }
         }
     });
 });
@@ -87,8 +91,11 @@ function plantarItem(area) {
 
         crescimentoPlanta(area);
     } else {
-        exibirAlerta('SELECIONE UMA SEMENTE PARA PLANTAR');
-        // console.log("Sem semente selecionada para plantar!");
+        if(herbicidaAtivo) {
+            return;
+        } else{
+            exibirAlerta('SELECIONE UMA SEMENTE PARA PLANTAR');
+        }
     }
 }
 

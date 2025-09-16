@@ -1,12 +1,20 @@
 import { areaPlantacao } from "./plantio.js";
 import { exibirAlerta } from "./popup-e-alerta.js";
 
-export let herbicidaAtivo = false;
 const herbicida = document.getElementById('botao-herbicida');
 const ervaDaninhaGif = '/assets/images/erva-daninha.gif';
 const tempoMin = 50000;
 const tempoMax = 150000;
-const areaPlantacaoArray = Array.from(areaPlantacao);
+
+export let herbicidaAtivo = false;
+
+let areaPlantacaoArray = [];
+
+window.addEventListener("DOMContentLoaded", () => {
+    import("./plantio.js").then(({ areaPlantacao }) => {
+        areaPlantacaoArray = Array.from(areaPlantacao);
+    });
+});
 
 function desativarHerbicida() {
     herbicidaAtivo = false;
@@ -31,7 +39,7 @@ document.addEventListener('click', (event) => {
     const elementoClicado = event.target;
 
     if (elementoClicado.classList.contains('area-plantacao') && elementoClicado.dataset.erva === 'true') {
-        
+        // área com erva -> remove
         const tempoCorrido = Math.floor(Date.now() / 1000);
         elementoClicado.style.backgroundImage = '';
         elementoClicado.style.backgroundColor = "";
@@ -39,14 +47,22 @@ document.addEventListener('click', (event) => {
         elementoClicado.dataset.tempoComErva = (tempoCorrido - parseInt(elementoClicado.dataset.tempoComErva)).toString();
 
         desativarHerbicida();
+        return;
+    } 
+    
+    if (elementoClicado.classList.contains('area-plantacao') && elementoClicado.dataset.erva === 'false') {
+        // cliquei numa área de plantação sem erva -> mostra alerta
+        exibirAlerta('NÃO HÁ ERVA DANINHA AQUI.', 'info');
+        desativarHerbicida();
+        return;
+    }
 
-    } else {
-        if (!elementoClicado.closest('#botao-herbicida')) {
-            exibirAlerta('NÃO HÁ ERVA DANINHA AQUI.', 'info');
-            desativarHerbicida();
-        }
+    if (!elementoClicado.closest('#botao-herbicida')) {
+        // cliquei em qualquer outro lugar da tela -> só desativa herbicida
+        desativarHerbicida();
     }
 });
+
 
 function encontrarPiorArea() {
     let piorArea = null;
